@@ -13,6 +13,7 @@ gets stdin a
 puts "Enter the obtained marks:"
 gets stdin b
 
+if {[string is integer $a] && [string is integer $b]} {
 #main calc
 set tcl_precision 4
 set c [expr {$b*100.0/$a}]
@@ -24,6 +25,7 @@ puts "Congrats! $s You have achieved grade A & Your marks percentage is $c"
 puts "Well done! $s You have achieved grade B & Your marks percentage is $c"
 } elseif {$c>=40} {
 puts "You need to do better! $s You have achieved grade C & Your marks percentage is $c"
-} else {
+} elseif {$c<=39} {
 puts "Better luck next time! $s You have been disqualified & Your marks percentage is $c"
-} 
+}} else {
+puts "Input a proper integer value!"}
