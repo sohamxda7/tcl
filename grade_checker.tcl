@@ -1,31 +1,26 @@
 #!/usr/bin/tclsh
 
-#welcome screen
-puts "Welcome to the Grade Checker"
-puts "Brought to you by Soham Sen"
-after 2000
-
 #value taking starts
 puts "Enter your name:"
-gets stdin s
+gets stdin username
 puts "Enter the total marks:"
-gets stdin a
+gets stdin total_marks
 puts "Enter the obtained marks:"
-gets stdin b
+gets stdin obtained_marks
 
-if {[string is integer $a] && [string is integer $b]} {
+if {[string is double -strict $total_marks] && [string is double -strict $obtained_marks]} {
 #main calc
 set tcl_precision 4
-set c [expr {$b*100.0/$a}]
+set percentage [expr { $obtained_marks * 100.0 / $total_marks}]
 
 #throwing grades according to the value
-if {$c>=80} {
-puts "Congrats! $s You have achieved grade A & Your marks percentage is $c" 
-} elseif {$c>=60} {
-puts "Well done! $s You have achieved grade B & Your marks percentage is $c"
-} elseif {$c>=40} {
-puts "You need to do better! $s You have achieved grade C & Your marks percentage is $c"
-} elseif {$c<=39} {
-puts "Better luck next time! $s You have been disqualified & Your marks percentage is $c"
+if {$percentage>=80} {
+puts "Congrats! $username You have achieved grade A & Your marks percentage is $percentage" 
+} elseif {$percentage>=60} {
+puts "Well done! $username You have achieved grade B & Your marks percentage is $percentage"
+} elseif {$percentage>=40} {
+puts "You need to do better! $username You have achieved grade C & Your marks percentage is $percentage"
+} elseif {$percentage<=39} {
+puts "Better luck next time! $username You have been disqualified & Your marks percentage is $percentage"
 }} else {
-puts "Input a proper integer value!"}
+puts "Input a proper value!"}
