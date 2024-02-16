@@ -8,12 +8,7 @@ gets stdin first_num
 puts "Enter the second number:"
 gets stdin second_num
 
-while {![string is double -strict $first_num] && ![string is double -strict $second_num]} {
-puts "Enter the first number:"
-gets stdin first_num
-puts "Enter the second number:"
-gets stdin second_num
-}
+if {[string is double -strict $first_num] && [string is double -strict $second_num]} {
 
 #Menu choice
 puts "What do you want to do?"
@@ -47,4 +42,6 @@ puts "You have chosen Division!"
 puts "Your result is: $result"
 } else { 
 puts "The value of second number should be more than zero!"
-} } }
+} } } 
+} else {
+puts "Please enter a proper value!"}
