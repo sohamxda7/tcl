@@ -2,12 +2,18 @@
 
 #get number details
 puts "Enter the first number:"
-gets stdin a
+gets stdin first_num
 puts "Enter the second number:"
-gets stdin b
+gets stdin second_num
+
+if {[string is entier -strict $first_num] && [string is entier -strict $second_num]} {
 
 #do the maths
-set c [expr {$a + $b}]
+set total_sum [expr {$first_num + $second_num}]
 
 #throw the text
-puts "The sum of two number is: $c"
+puts "The sum of two number is: $total_sum"
+
+} else {
+
+puts "Enter a proper integer value" }
