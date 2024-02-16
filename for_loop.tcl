@@ -1,12 +1,13 @@
 #!/usr/bin/tclsh
 
 puts "Enter the number:"
-gets stdin a
-while {![string is integer -strict $a]} {
+gets stdin usernum
+while {![string is entier -strict $usernum]} {
 puts "please enter a valid integer number again!"
 puts "Enter the number:"
-gets stdin a }
-for {set b 1} {$b<=10} {incr b} {
-set c [expr {$a * $b}]
-puts "$a X $b is $c" }
+gets stdin usernum }
+for {set multnum 1} {$multnum<=10} {incr multnum} {
+set output [expr {$usernum * $multnum}]
+puts [format "%d X %d = %d" $usernum $multnum $output]
+}
 
