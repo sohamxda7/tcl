@@ -2,12 +2,12 @@
 
 #Take input from user
 puts "Enter the month number (1-12):"
-gets stdin a
+gets stdin month_num
 
 #Do a check that a valid integer is placed & start the switch case
 
-if {[string is integer $a] && $a>=1 && $a<=12} {
-switch $a { 
+if {[string is integer -strict $month_num] && $month_num>=1 && $month_num<=12} {
+switch $month_num { 
 1 {puts "January"} 
 2 {puts "February"} 
 3 {puts "March"}
