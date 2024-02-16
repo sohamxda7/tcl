@@ -1,15 +1,19 @@
 #!/usr/bin/tclsh
 
-#Greetings
-puts "Simple Calculator"
-puts "brought to you by soham sen"
-after 2000
+#Using if & switch condition only
 
 #Number inputs
 puts "Enter the first number:"
-gets stdin a
+gets stdin first_num
 puts "Enter the second number:"
-gets stdin b
+gets stdin second_num
+
+while {![string is double -strict $first_num] && ![string is double -strict $second_num]} {
+puts "Enter the first number:"
+gets stdin first_num
+puts "Enter the second number:"
+gets stdin second_num
+}
 
 #Menu choice
 puts "What do you want to do?"
@@ -17,34 +21,30 @@ puts "Enter 1 = For Multiplication"
 puts "Enter 2 = For Addition"
 puts "Enter 3 = For Substraction"
 puts "Enter 4 = For Division"
-gets stdin c
+gets stdin choice
 
-#using if condition for choice based calc
+#using switch condition for choice based calc
 
-#Multiplication choice
-if {$c == 1} {
-set d [expr $a*$b]
-puts "You have chosen Multiplication"
-after 1500
-puts "Your result is: $d"}
+switch $choice { 
+1 {
+set result [expr {$first_num * $second_num}]
+puts "You have chosen Multiplication!"
+puts "Your result is: $result"}
 
-#Addition Choice
-if {$c == 2} {
-set d [expr $a+$b]
-puts "You have chosen Addition"
-after 1500
-puts "Your result is: $d"}
+2 {
+set result [expr {$first_num + $second_num}]
+puts "You have chosen Addition!"
+puts "Your result is: $result"}
 
-#Substraction choice
-if {$c == 3} {
-set d [expr $a-$b]
-puts "You have chosen Substraction"
-after 1500
-puts "Your result is: $d"}
+3 {
+set result [expr {$first_num - $second_num}]
+puts "You have chosen Substraction!"
+puts "Your result is: $result"}
 
-#Division choice
-if {$c == 4} {
-set d [expr $a/$b]
-puts "You have chosen Division"
-after 1500
-puts "Your result is: $d"}
+4 { if {$second_num > 0} {
+set result [expr {$first_num / $second_num}]
+puts "You have chosen Division!"
+puts "Your result is: $result"
+} else { 
+puts "The value of second number should be more than zero!"
+} } }
