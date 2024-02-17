@@ -1,7 +1,8 @@
 #!/usr/bin/tclsh
 
-#Using if & switch condition only
+#Using while, if, switch condition only
 
+while {true} { 
 #Number inputs
 puts "Enter the first number:"
 gets stdin first_num
@@ -9,6 +10,10 @@ puts "Enter the second number:"
 gets stdin second_num
 
 if {[string is double -strict $first_num] && [string is double -strict $second_num]} {
+	break
+} else {
+	puts "Enter a proper value! Input values again!"
+	after 1000 } }
 
 #Menu choice
 puts "What do you want to do?"
@@ -42,6 +47,4 @@ puts "You have chosen Division!"
 puts "Your result is: $result"
 } else { 
 puts "The value of second number should be more than zero!"
-} } } 
-} else {
-puts "Please enter a proper value!"}
+} } }
