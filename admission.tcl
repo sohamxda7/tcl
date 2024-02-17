@@ -2,25 +2,37 @@
 
 #Write a TCL script to determine eligibility for admission to a professional course based on a criteria
 
-#take values from user
+#take values from user & as well as put while check
 
+#check and take value for physics
+while {true} {
 puts "Enter your marks in physics:"
 gets stdin phy_marks
+if {[string is double -strict $phy_marks]} {
+	break 
+} else {
+puts "Enter your physics marks correctly!"
+after 1000 }}
+
+#check and take value for chem
+while {true} {
 puts "Enter your marks in chemistry:"
 gets stdin chem_marks
-puts "Enter your marks in maths:"
+if {[string is double -strict $chem_marks]} {
+	break 
+} else {
+puts "Enter your chem marks correctly!"
+after 1000 }}
+
+#check and take value for math
+while {true} {
+puts "Enter your marks in math:"
 gets stdin math_marks
-
-#Check for verifying the value
-
-while {![string is double -strict $phy_marks] && ![string is double -strict $chem_marks] && ![string is double -strict $math_marks]} {
-puts "You have entered wrong value for one of the subjects.\nPlease enter the values again!"
-puts "Enter your marks in physics:"
-gets stdin phy_marks
-puts "Enter your marks in chemistry:"
-gets stdin chem_marks
-puts "Enter your marks in maths:"
-gets stdin math_marks }
+if {[string is double -strict $math_marks]} {
+	break 
+} else {
+puts "Enter your math marks correctly!"
+after 1000 }}
 
 #main calc starts
 
@@ -34,6 +46,3 @@ puts "You are eligible for admission!"
 puts "You are not eligible for admission!" }
 } else {
 puts "You are not eligible for admission!" }
-
-
-
