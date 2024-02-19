@@ -1,0 +1,42 @@
+				Loop Questions
+			----------------------------
+
+1. Write a TCL script to display the odd natural numbers till n and their sum.
+2. Write a TCL script to display a pattern like a diamond with an asterisk of n number. (Suppose user gives 4 as input, then output like)
+		*
+	      *   *
+	    *   *   *
+	  *   *   *   *
+	    *   *   *   
+	      *   *
+		*
+3. Write a TCL script to calculate the factorial of a given number.
+4. Write a TCL script to display the n terms of a harmonic series and their sum.
+	1 + 1/2 + 1/3 + 1/4 + 1/5 ... 1/n terms
+5. Write a TCL script to check whether a given number is a 'Perfect' number or not.
+
+
+				Array Questions
+			----------------------------
+
+1. Write a TCL script to read n number of values in an array and copy those elements which is odd number into another array.
+2. Write a TCL script to merge two arrays of the same size and sort in descending order.
+3. Write a TCL script to count the frequency/repeatation of each element of an array.
+4. Write a TCL script to insert the values in the array (sorted list).
+Test Data :
+Insert New value in the sorted array :
+-----------------------------------------
+Input the size of array : 5
+Input 5 elements in the array in ascending order:
+element - 0 : 2
+element - 1 : 5
+element - 2 : 7
+element - 3 : 9
+element - 4 : 11
+Input the value to be inserted : 8
+The exist array list is :
+2 5 7 9 11
+After Insert the list is :
+2 5 7 8 9 11
+
+5. Write a TCL script for a 2D array of size 3x3 and print the matrix.
