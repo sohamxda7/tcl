@@ -6,15 +6,15 @@
 #set two arrays
 
 array set firstArr {
-	value 1
-	value 2
-	value 3
+	value1 1
+	value2 2
+	value3 3
 }
 
 array set secondArr {
-	value 4
-	value 5
-	value 6
+	value4 4
+	value5 5
+	value6 6
 }
 
 if {[array size firstArr] == [array size secondArr]} {
