@@ -45,3 +45,30 @@ set shopping(bread) 1
 foreach {key value} [array get shopping] {
 	puts "Item: $key, Qty: $value"
 }
+
+puts "\n"
+
+array set shop {
+	apples 8
+	bananas 3
+	milk 2
+	bread 1
+}
+
+unset shop(bread)
+unset shop(bananas)
+
+foreach {key value} [array get shop] {
+	puts "Item: $key, Qty: $value"
+}
+
+puts "\n"
+
+array set ex {
+ ram 1
+ sham 2
+ lam 3
+}
+
+puts "[array get ex]"
+ 
