@@ -5,25 +5,30 @@
 
 #set two arrays
 
-array set firstArr {
-	value1 1
-	value2 2
-	value3 3
+array set first_colorcount {
+    red   2
+    green 5
+    blue  4
+    white 9
 }
 
-array set secondArr {
-	value4 4
-	value5 5
-	value6 6
+array set second_colorcount {
+	yellow 3
+	brown 6
+	violet 7
+	black 10
 }
 
-if {[array size firstArr] == [array size secondArr]} {
-	array set finalArr [concat [array get firstArr] [array get secondArr]]
-	array set sorted [lsort -decreasing [array get finalArr]]
-	
-foreach {key value} [array get sorted] {
-	puts "$key : $value"
-	}
+#merge two arrays
+if {[array size first_colorcount] == [array size second_colorcount]} {
+	foreach {color value} [array get first_colorcount] {
+		 set second_colorcount($color) $value
+}
+
+#main logic
+	foreach {color count} [lsort -decreasing -stride 2 -index 1 -integer [array get second_colorcount]] {
+    			puts "Color: $color & Count: $count"
+	} 
 } else {
-	puts "Both arrays are not of same size!"
+	puts "Two arrays are not of same size!"
 }
