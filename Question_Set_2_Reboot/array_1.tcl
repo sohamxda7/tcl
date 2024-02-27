@@ -37,4 +37,39 @@ foreach {key value} [array get $user_array] {
 puts [array get $new_array]
 
 #result
+if {0} {
+Enter the array name:
+fruits
+
+How many values do you want to enter in array?
+4
+
+Iteration No. 1
+Enter name of the key:
+mango
+Enter value of the key:
+3
+
+Iteration No. 2
+Enter name of the key:
+banana
+Enter value of the key:
+2
+
+Iteration No. 3
+Enter name of the key:
+jackfruit
+Enter value of the key:
+2
+
+Iteration No. 4
+Enter name of the key:
+apple
+Enter value of the key:
+5
+
+Enter the new array name:
+odd
+mango 3 apple 5
+}
 		
