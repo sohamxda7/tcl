@@ -2,74 +2,81 @@
 
 #Write a TCL script to read n number of values in an array and copy those elements which is odd number into another array.
 
-#get array name from user
-puts "Enter the array name:"
-gets stdin user_array
+#Lets create a fruit name db where we will sort out odd fruit names
 
-#get array value iteration from user
-puts "How many values do you want to enter in array?"
-gets stdin iteration
+#First of lets ask user how many fruits he/she wants to enter
 
-#use for loop to rpeatedly get array keys and values from user
-for {set loop 1} {$loop <= $iteration} {incr loop} {
-	puts "Iteration No. $loop"
-	puts "Enter name of the key:"
-	gets stdin index
-	puts "Enter value of the key:"
-	gets stdin pair
-	set  "${user_array}($index)" $pair
+#lets add a check so that the program continues only if user enters a valid integer
+
+while {true} {
+	puts "How many fruit names do you want to enter?"
+	gets stdin fruitnum
+	if {[string is entier -strict $fruitnum] && $fruitnum > 0} {
+		break 
+	} else {
+		puts "Please enter a proper integer!"
+	}
 }
 
-#get new array to copy odd ones to the new array
-puts "Enter the new array name:"
-gets stdin new_array
+#all done, now lets initiate an empty array
+array set fruitname {}
 
-#caluclation to sort odd ones out
+#now we will take names of various fruits from user
+for {set num 1} {$num <= $fruitnum} {incr num} {
 
-foreach {key value} [array get $user_array] {
-	if {$value % 2 > 0} {
-		set "${new_array}($key)" $value
-			}
+#casually hint user of fruit number
+puts "Taking value of the fruit no. $num"
+
+#Taking value of the fruit name from user
+puts "Enter the name of the fruit"
+gets stdin name
+
+#start setting previously initiated empty array
+set fruitname($num) $name
+
+}
+
+#initiate an empty array to keep track of odd ones
+array set fruitodd {}
+
+#use foreach loop to iterate and start sorting odd ones out
+foreach {key value} [array get fruitname] {
+	if {$key % 2 > 0} {
+		set fruitodd($key) $value 
 		}
-			
-#throw out final value with odd ones sorted in new array
+}
 
-puts [array get $new_array]
+#finally output the odd fruit names
+foreach {index fruit} [array get fruitodd] {
+	puts "Fruit Name: $fruit"
+}
 
-#result
+#Result
 if {0} {
-Enter the array name:
-fruits
-
-How many values do you want to enter in array?
-4
-
-Iteration No. 1
-Enter name of the key:
-mango
-Enter value of the key:
-3
-
-Iteration No. 2
-Enter name of the key:
-banana
-Enter value of the key:
-2
-
-Iteration No. 3
-Enter name of the key:
-jackfruit
-Enter value of the key:
-2
-
-Iteration No. 4
-Enter name of the key:
-apple
-Enter value of the key:
+How many fruit names do you want to enter?
 5
 
-Enter the new array name:
-odd
-mango 3 apple 5
+Taking value of the fruit no. 1
+Enter the name of the fruit
+Mango
+
+Taking value of the fruit no. 2
+Enter the name of the fruit
+Guava
+
+Taking value of the fruit no. 3
+Enter the name of the fruit
+Lichi
+
+Taking value of the fruit no. 4
+Enter the name of the fruit
+Jackfruit
+
+Taking value of the fruit no. 5
+Enter the name of the fruit
+Orange
+
+Fruit Name: Mango
+Fruit Name: Orange
+Fruit Name: Lichi
 }
-		
